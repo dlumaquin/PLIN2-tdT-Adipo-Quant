@@ -10,8 +10,7 @@
 clear all
 close all
 
-analysis_wt_flag = 1; % run analysis on WT images
-analysis_mut_flag = 1; % run analysis on mut images
+analyze_flag = 1; % run analysis on images
 
 % code demonstrates how to conduct analysis on 4 groups
 % modify code as needed depending on number of experimental conditions
@@ -364,7 +363,6 @@ currkey=get(gcf,'CurrentKey');
 rectpos = get(rect,'Position');
 rectpos_xy_wt(cc,1:4) = rectpos;
 crop = imcrop(I,rectpos_xy_wt(cc,1:4));
-figure;imshow(crop)
 crop_tom{1,cc} = crop;
 end
 close all
@@ -377,7 +375,6 @@ for cc = 1:length(tdT2_wt)
     I = tdT2_thresh_wt_filt{1,cc};
     rectpos_xy_wt = readmatrix(vehfile);
     crop = imcrop(I,rectpos_xy_wt(cc,1:4));
-    figure;imshow(crop)
     crop_tom{1,cc} = crop;
 end
 end
@@ -480,7 +477,6 @@ currkey=get(gcf,'CurrentKey');
 rectpos_mut = get(rect,'Position');
 rectpos_xy_mut(dd,1:4) = rectpos_mut;
 crop_mut = imcrop(I2,rectpos_xy_mut(dd,1:4));
-figure;imshow(crop_mut)
 crop_tom_mut{1,dd} = crop_mut;
 end
 close all
@@ -492,7 +488,6 @@ for dd = 1:length(tdT2_mut)% modify
     I2 = tdT2_thresh_mut_filt{1,dd};
     rectpos_xy_mut = readmatrix(atglfile);
     crop_mut = imcrop(I2,rectpos_xy_mut(dd,1:4));
-    figure;imshow(crop_mut)
     crop_tom_mut{1,dd} = crop_mut;
 end
 end
@@ -590,7 +585,6 @@ currkey=get(gcf,'CurrentKey');
 rectpos_mut_b = get(rect,'Position');
 rectpos_xy_mut_b(dd,1:4) = rectpos_mut_b;
 crop_mut_b = imcrop(I3,rectpos_xy_mut_b(dd,1:4));
-figure;imshow(crop_mut_b)
 crop_tom_mut_b{1,dd} = crop_mut_b;
 end
 close all
@@ -602,7 +596,6 @@ for dd = 1:length(tdT2_mut_b)% modify
     I3 = tdT2_thresh_mut_b_filt{1,dd};
     rectpos_xy_mut_b = readmatrix(aurafile);
     crop_mut_b = imcrop(I3,rectpos_xy_mut_b(dd,1:4));
-    figure;imshow(crop_mut_b)
     crop_tom_mut_b{1,dd} = crop_mut_b;
 end
 end
@@ -703,7 +696,6 @@ currkey=get(gcf,'CurrentKey');
 rectpos_mut_c = get(rect,'Position');
 rectpos_xy_mut_c(dd,1:4) = rectpos_mut_c;
 crop_mut_c = imcrop(I3,rectpos_xy_mut_c(dd,1:4));
-figure;imshow(crop_mut_c)
 crop_tom_mut_c{1,dd} = crop_mut_c;
 end
 close all
@@ -715,7 +707,6 @@ for dd = 1:length(tdT2_mut_c)% modify
     I3 = tdT2_thresh_mut_c_filt{1,dd};
     rectpos_xy_mut_c = readmatrix(jskfile);
     crop_mut_c = imcrop(I3,rectpos_xy_mut_c(dd,1:4));
-    figure;imshow(crop_mut_c)
     crop_tom_mut_c{1,dd} = crop_mut_c;
 end
 end
